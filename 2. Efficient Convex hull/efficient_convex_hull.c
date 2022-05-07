@@ -99,13 +99,13 @@ float distance( float a, float b, float c, t_point p) {
 void separate_points( t_point *points, int num_point, t_point from, t_point to, t_point *s1, t_point *s2, int *n1, int *n2) {
 	*n1 = 0;
 	*n2 = 0;
-	float a = to.y - from.y;
-	float b = from.x - to.x;
-	float c = from.x * to.y - from.y * to.x;
+	int a = to.y - from.y;
+	int b = from.x - to.x;
+	int c = from.x * to.y - from.y * to.x;
 
 	for (int i = 0; i < num_point; i++) {
 		t_point p = points[i];
-		float line = a * p.x + b * p.y - c;
+		int line = a * p.x + b * p.y - c;
 
 		if (line < 0)
 			s1[(*n1)++] = p;
