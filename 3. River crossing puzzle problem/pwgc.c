@@ -33,13 +33,13 @@ static void print_statename( FILE *fp, int state) {
 // 주어진 상태 state에서 농부, 늑대, 염소, 양배추의 상태를 각각 추출하여 p, w, g, c에 저장
 // 예) state가 7(0111)일 때, p = 0, w = 1, g = 1, c = 1
 static void get_pwgc( int state, int *p, int *w, int *g, int *c) {
-	*c = state % 2;
-	state /= 2;
-	*g = state % 2;
-	state /= 2;
-	*w = state % 2;
-	state /= 2;
-	*p = state % 2;
+	*c = state & 1;
+	state >>= 1;
+	*g = state & 1;
+	state >>= 1;
+	*w = state & 1;
+	state >>= 1;
+	*p = state & 1;
 }
 
 // 허용되지 않는 상태인지 검사
